@@ -5,8 +5,6 @@ package main
 
 // These are implemented as classes external to protocol.rb in Poseidon.
 // Extra care will probably be required in implementing these in particular.
-type Message struct{}
-type MessageSet struct{}
 type TopicMetadata struct{}
 
 // REQUEST/RESPONSE COMMON STRUCTURE/////////////////////////
@@ -22,7 +20,8 @@ type ResponseCommon struct {
 }
 
 // MESSAGESET COMMON STRUCTURE/////////////////////////
-type MessageStruct struct {
+/* type MessageStruct struct { */
+type Message struct {
 	crc32      int32
 	size       int32
 	MagicType  int8
@@ -33,10 +32,11 @@ type MessageStruct struct {
 
 type MessageWithOffsetStruct struct {
 	Offset  int64
-	Message MessageStruct
+	Message Message
 }
 
-type MessageSetStruct struct {
+/* type MessageSetStruct struct { */
+type MessageSet struct {
 	Messages []Message `size_bounded`
 }
 
